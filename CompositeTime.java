@@ -3,7 +3,7 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
 
-public class CompositeTime extends ElapsedTime{
+public class CompositeTime implements ElapsedTime{
 	private double[] array;
 	
 	public CompositeTime(double[] times) {
@@ -45,6 +45,12 @@ public class CompositeTime extends ElapsedTime{
 		}
 		
 		return sum;
+	}
+
+	@Override
+	public boolean shorter(Object compareTo) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	

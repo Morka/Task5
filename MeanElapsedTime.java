@@ -1,4 +1,4 @@
-public class MeanElapsedTime extends ElapsedTime /*or implements depanding on ElapsedTime*/{
+public class MeanElapsedTime implements ElapsedTime /*or implements depanding on ElapsedTime*/{
 	
 	private Set<Double> times;
 
@@ -13,5 +13,11 @@ public class MeanElapsedTime extends ElapsedTime /*or implements depanding on El
 		}
 		
 		return countTimes;
+	}
+
+	@Override
+	public boolean shorter(Object compareTo) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
