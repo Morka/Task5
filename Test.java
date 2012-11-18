@@ -10,23 +10,17 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Set<String> stringset = new Set<String>();
+		Set<CompositeTime> set = new Set<CompositeTime>();
+		double[] darray = {3.14, 7.18, 4.23};
+		CompositeTime ctime = new CompositeTime(darray);
+		//ElapsedTime etime = new ElapsedTime(10.3);
 		
-		stringset.insert("Hallo");
-		stringset.insert("Wolfgang");
-		stringset.insert("Wie");
-		stringset.insert("geht");
-		stringset.insert("es");
-		stringset.insert("dir?");
+		//set.insert(ctime);
 		
-		String str = "Danke, sehr gut";
-		stringset.insert(str);
-
-		
-		Iterator<String> it = stringset.iterator();
-		while(it.hasNext()) {
-			System.out.println(it.next());
-		}
+		//Iterator<CompositeTime> it = set.iterator();
+		//while(it.hasNext()) {
+		//	System.out.println(ctime.shorter(etime));
+		//}
 		
 		
 

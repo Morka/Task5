@@ -32,7 +32,7 @@ public class CompositeTime extends ElapsedTime{
 	/*public boolean shorter(T compareTo) {
 		double sum = sum();
 	
-		//if(sum < time.getTime())
+		if(sum < compareTo.getTime())
 			
 		return true;
 	}*/

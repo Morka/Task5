@@ -7,6 +7,4 @@ public class ElapsedTime<T> implements Shorter<T>{
 	public boolean shorter(T compareTo) {
 		return true;
 	}
-
-
 }
