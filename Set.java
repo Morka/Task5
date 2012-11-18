@@ -8,28 +8,19 @@ import java.util.Iterator;
 
 public class Set<T> implements Iterable<T> {
 	
-	public class Node<T> {
-		private T element; // element in node
-		private Node<T> next = null; // next node in list
-	
-		public Node (T elem) {
-			this.element = elem;
-		}
-	}	
-	
 	private Node<T> head = null;  // first node of list
 	private Node<T> tail = null;  // last list node
 	
 	private class MyIterator<T> implements Iterator<T> {
-		private Node<T> p = (Node<T>) head; // iterator position
+		private Node<T> p = /*(Node<T>)*/ head; // iterator position
 		private Node<T> prev = null; //previous Node Element of current iterator position
 		
 		public T next() {      // get next list element
 			if (p == null)
 				return null;
-			T element = p.element;
+			T element = p.getElement();
 			prev = p;
-			p = p.next;
+			p = p.getNextNode();
 		
 			return element;
 		}
@@ -40,7 +31,7 @@ public class Set<T> implements Iterable<T> {
 		
 		public void remove() {
 			if(prev != null) 
-				prev.next = p.next;
+				prev = p.getNextNode();
 			else
 				throw new IllegalStateException();
 			}
@@ -56,8 +47,10 @@ public class Set<T> implements Iterable<T> {
 			
 			if (head == null)
 				tail = head = new Node<T>(element);
-			else
-				tail = tail.next = new Node<T>(element);
+			else{
+				tail = new Node<T>(element);
+				tail.setNextNode(new Node<T>(element));
+			}
 		}
 	}		
 	
@@ -66,9 +59,9 @@ public class Set<T> implements Iterable<T> {
 		Node<T> p = head;
 		
 		while(p != null) {
-			if(p.element == element)
+			if(p.getElement() == element)
 				return true;
-			p = p.next;
+			p = p.getNextNode();;
 		}
 		
 		return false;
