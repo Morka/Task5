@@ -10,36 +10,10 @@ public class Set<T> implements Iterable<T> {
 	
 	private Node<T> head = null;  // first node of list
 	private Node<T> tail = null;  // last list node
-	
-	private class MyIterator<T> implements Iterator<T> {
-		private Node<T> p = /*(Node<T>)*/ head; // iterator position
-		private Node<T> prev = null; //previous Node Element of current iterator position
-		
-		public T next() {      // get next list element
-			if (p == null)
-				return null;
-			T element = p.getElement();
-			prev = p;
-			p = p.getNextNode();
-		
-			return element;
-		}
-		
-		public boolean hasNext() {  // more elements?
-			return p != null;
-		}
-		
-		public void remove() {
-			if(prev != null) 
-				prev = p.getNextNode();
-			else
-				throw new IllegalStateException();
-			}
-	}	
-	
+
 	//Returns an iterator over a set of elements of type T.
 	public Iterator<T> iterator() {
-		return new MyIterator<T>();
+		return new MyIterator<T>(head);
 	}
 	
 	public void insert(T element) {
