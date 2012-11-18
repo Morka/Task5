@@ -6,16 +6,16 @@ import java.lang.IllegalStateException;
 import java.lang.Iterable; //Implementing this interface allows an object to be the target of the "foreach" statement.
 import java.util.Iterator;
 
-public class Set<T> implements Iterable<T> {
+public class OrderedSet<T extends Comparable<T>> implements Shorter<T>, Iterable<T> {
 	
-	private Node<T> head;  // first node of list
-	private Node<T> tail;  // last list node
+	private ComparableNode<T> head = null;
+	private ComparableNode<T> tail = null;
 	
-	private class MyIterator<T> implements Iterator<T> {
-		private Node<T> p; // iterator position
-		private Node<T> prev; //previous Node Element of current iterator position
+	private class MyOrderedIterator<T extends Comparable<T>> implements Iterator<T> {
+		private ComparableNode<T> p; // iterator position
+		private ComparableNode<T> prev; //previous Node Element of current iterator position
 		
-		public MyIterator(Node<T> first){
+		public MyOrderedIterator(ComparableNode<T> first){
 			p = first;
 			prev = null;
 		}
@@ -41,27 +41,18 @@ public class Set<T> implements Iterable<T> {
 				throw new IllegalStateException();
 			}
 	}	
-
-	//Returns an iterator over a set of elements of type T.
-	public Iterator<T> iterator() {
-		return new MyIterator<T>(head);
-	}
 	
 	public void insert(T element) {
 		if(!contains(element)) {
-			
-			if (head == null)
-				tail = head = new Node<T>(element);
-			else{
-				tail = new Node<T>(element);
-				tail.setNextNode(new Node<T>(element));
-			}
+
+			head.insert(element);
+
 		}
 	}		
 	
 	//check if identic
-	public boolean contains(T element) {//SOLL DES NET PRIVATE SEIN?? steht ja net das gefordert is also sollts private sein weil se schaun ja drauf??
-		Node<T> p = head;
+	private boolean contains(T element) {
+		ComparableNode<T> p = head;
 		
 		while(p != null) {
 			if(p.getElement() == element)
@@ -71,4 +62,23 @@ public class Set<T> implements Iterable<T> {
 		
 		return false;
 	}
+	
+	public boolean shorter(T toCompare){
+		
+		/*if(toCompare.compareTo(this.head)){
+			
+			
+			
+		}*/
+		
+		return false;
+		
+	}
+	
+	public Iterator<T> iterator() {
+		
+		return new MyOrderedIterator<T>(head);
+		
+	}
+	
 }
