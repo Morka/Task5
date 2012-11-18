@@ -6,7 +6,7 @@ import java.lang.IllegalStateException;
 import java.lang.Iterable; //Implementing this interface allows an object to be the target of the "foreach" statement.
 import java.util.Iterator;
 
-public class OrderedSet<T extends Comparable<T>> implements Shorter<T>, Iterable<T> {
+public class OrderedSet<T extends Comparable<T>> implements Iterable<T> {
 	
 	private ComparableNode<T> head = null;
 	private ComparableNode<T> tail = null;
@@ -52,27 +52,9 @@ public class OrderedSet<T extends Comparable<T>> implements Shorter<T>, Iterable
 	
 	//check if identic
 	private boolean contains(T element) {
-		ComparableNode<T> p = head;
-		
-		while(p != null) {
-			if(p.getElement() == element)
-				return true;
-			p = p.getNextNode();;
-		}
-		
-		return false;
-	}
-	
-	public boolean shorter(T toCompare){
-		
-		/*if(toCompare.compareTo(this.head)){
-			
-			
-			
-		}*/
-		
-		return false;
-		
+
+		return head != null && head.contains(element);
+
 	}
 	
 	public Iterator<T> iterator() {
