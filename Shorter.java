@@ -1,3 +1,6 @@
+/**
+ * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
+ */
 
 public interface Shorter<T> {
 
