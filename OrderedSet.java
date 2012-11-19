@@ -6,12 +6,12 @@ import java.lang.IllegalStateException;
 import java.lang.Iterable; //Implementing this interface allows an object to be the target of the "foreach" statement.
 import java.util.Iterator;
 
-public class OrderedSet<T extends Comparable<T>> implements Iterable<T> {
+public class OrderedSet<T extends Shorter<T>> implements Iterable<T> {
 	
 	private ComparableNode<T> head = null;
 	private ComparableNode<T> tail = null;
 	
-	private class MyOrderedIterator<T extends Comparable<T>> implements Iterator<T> {
+	private class MyOrderedIterator<T extends Shorter<T>> implements Iterator<T> {
 		private ComparableNode<T> p; // iterator position
 		private ComparableNode<T> prev; //previous Node Element of current iterator position
 		

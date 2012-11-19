@@ -1,4 +1,4 @@
-public class ComparableNode<T extends Comparable<T>> implements Shorter<T>{
+public class ComparableNode<T extends Shorter<T>>{
 	private T element; // element in node
 	private ComparableNode<T> next = null; // next node in list
 	
@@ -30,7 +30,7 @@ public class ComparableNode<T extends Comparable<T>> implements Shorter<T>{
 	
 	public void insert(T element){
 		
-		if(this.shorter(element)){
+		if(this.element.shorter(element)){
 			
 			if(next != null){
 				
@@ -46,7 +46,7 @@ public class ComparableNode<T extends Comparable<T>> implements Shorter<T>{
 		
 	}
 
-	public boolean shorter(T compareTo) {
+	/*public boolean shorter(T compareTo) {
 		if(this.element.compareTo(compareTo) < 0){
 			
 			return true;
@@ -56,7 +56,7 @@ public class ComparableNode<T extends Comparable<T>> implements Shorter<T>{
 			return false;
 			
 		}
-	}
+	}*/
 }	
 
 
