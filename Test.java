@@ -22,8 +22,8 @@ public class Test {
 		//	System.out.println(ctime.shorter(etime));
 		//}
 		
-		
-
+		OrderedMap<String, Double> test = new OrderedMap<String, Double>();
+		test.insert("hallo");
 	}
 
 }

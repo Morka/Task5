@@ -1,4 +1,4 @@
-public class Node<T> {
+public class Node<T>{
 	private T element; // element in node
 	private Node<T> next = null; // next node in list
 	

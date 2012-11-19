@@ -1,6 +1,6 @@
 /**
- * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
- */
+* @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
+*/
 
 import java.lang.IllegalStateException; 
 import java.lang.Iterable; //Implementing this interface allows an object to be the target of the "foreach" statement.
@@ -10,7 +10,39 @@ public class Set<T> implements Iterable<T> {
 	
 	private Node<T> head;  // first node of list
 	private Node<T> tail;  // last list node
-
+		
+	private class MyIterator<T> implements Iterator<T>{
+		private Node<T> p; // iterator position
+		private Node<T> prev; //previous Node Element of current iterator position
+		
+		public MyIterator(Node<T> first){
+			p = first;
+			prev = null;
+			
+		}
+		
+		public T next() {      // get next list element
+			if (p == null)
+				return null;
+			T element = p.getElement();
+			prev = p;
+			p = p.getNextNode();
+			
+			
+			return element;
+		}
+		
+		public boolean hasNext() {  // more elements?
+			return p != null;
+		}
+		
+		public void remove() {
+			if(prev != null) 
+				prev = p.getNextNode();
+			else
+				throw new IllegalStateException();
+		}
+	}
 	//Returns an iterator over a set of elements of type T.
 	public Iterator<T> iterator() {
 		return new MyIterator<T>(head);
