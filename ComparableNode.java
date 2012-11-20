@@ -29,7 +29,7 @@ public class ComparableNode<T extends Shorter<T>>{
 	}
 	
 	public void insert(T element){
-		
+
 		if(this.element.shorter(element)){
 			
 			if(next != null){

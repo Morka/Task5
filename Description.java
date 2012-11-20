@@ -12,7 +12,7 @@ public class Description implements Shorter<Description> {
 		
 	}
 
-	@Override
+	//@Override
 	public boolean shorter(Description compareTo) {
 		
 		if(this.value.length() < compareTo.toString().length()){

@@ -34,7 +34,7 @@ public class Test {
 		Description desc3 = new Description("There is much talk, and I have listened,\nthrough rock and metal and time.\nNow I shall talk, and you shall listen.");
 		Description desc4 = new Description("Silence fills the empty grave,\nnow that I have gone.\nBut my mind is not at rest,\nfor questions linger on.\nI will ask, and you will answer.");
 		Description desc5 = new Description("We exist together now,\ntwo corpses in one grave...");
-		Set<Description> ordSet = new Set<Description>(); 
+		OrderedSet<Description> ordSet = new OrderedSet<Description>(); 
 		
 		ordSet.insert(desc1);
 		ordSet.insert(desc2);
