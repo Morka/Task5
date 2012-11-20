@@ -1,24 +1,17 @@
 import java.util.Iterator;
 
-/**
- * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
- */
-
-public class MeanElapsedTime<T extends ElapsedTime> implements ElapsedTime{
-	
+public class MeanElapsedTime implements ElapsedTime /*or implements depanding on ElapsedTime*/ {
 	private Set<Double> times;
 
 	public MeanElapsedTime(Set<Double> times){
 		this.times = times;
 	}
 	
-	
 	public int count(){
 		int countTimes = 0;
 		
-		Iterator iter = times.iterator();
-		while(iter.hasNext()){
-			iter.next();
+		Iterator<Double> iter = times.iterator();
+		while(iter.hasNext()) {                          
 			countTimes++;
 		}
 		
@@ -29,52 +22,48 @@ public class MeanElapsedTime<T extends ElapsedTime> implements ElapsedTime{
 		times.insert(time);
 	}
 	
-	public boolean shorter(T compareTo){
-		double mean = this.toBeCompared();
-		
-		if(mean < compareTo.toBeCompared()){
-			return true;
-		}else{
-			return false;
-		}
-	}
-	
-	public double toBeCompared(){
-		return mean();
-	}
-	
-	private double mean(){
-		Iterator iter = times.iterator();
-		
-		double sum = 0.0;
-	/*	
-		while(iter.hasNext()){
-			Node<Double> tmp = iter.next();
-			sum += tmp.getElement();
-			
-		}
-		
-		return sum / this.count();
-	}
-	
 	public double longestTime(){
-		Iterator iter = times.iterator();
+		Iterator<Double> iter = times.iterator();
 		double longest = 0.0;
 		
 		while(iter.hasNext()){
-			Node<Double> tmp = iter.next();
-			if(tmp.getElement() < longest){
-				longest = tmp.getElement();
+			double tmp = iter.next();
+			if(tmp < longest){
+				longest = tmp;
 			}
-			
 		}
 		return longest;
-	*/
-	return sum;}
+	}
+	
+	
 
-	@Override
-	public boolean shorter(Object compareTo) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	public boolean shorter(ElapsedTime compareTo) {
+		double mean = this.toBeCompared();
+		
+		if(mean < compareTo.toBeCompared()){
+				return true;
+		} else {
+				return false;
+		}
+	}
+
+	private double mean(){
+		
+		Iterator<Double> iter = times.iterator();
+		
+		double sum = 0.0;
+		/*	
+		while(iter.hasNext()){
+			Node<Double> tmp = iter.next();
+			sum += tmp.getElement();
+		
+		}*/
+			return sum;
+	}
+
+	
+	public double toBeCompared() {
+		return mean();
 	}
 }

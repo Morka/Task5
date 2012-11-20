@@ -3,7 +3,7 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
 
-public class CompositeTime<T extends ElapsedTime> implements ElapsedTime<T>{
+public class CompositeTime implements ElapsedTime {
 	private double[] array;
 	
 	public CompositeTime(double[] times) {
@@ -29,7 +29,7 @@ public class CompositeTime<T extends ElapsedTime> implements ElapsedTime<T>{
 	}
 	
 	
-	public boolean shorter(T compareTo) {
+	public boolean shorter(ElapsedTime compareTo) {
 		double sum = sum();
 	
 		if(sum < compareTo.toBeCompared())	
@@ -50,5 +50,5 @@ public class CompositeTime<T extends ElapsedTime> implements ElapsedTime<T>{
 		}
 		
 		return sum;
-	}	
+	}
 }

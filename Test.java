@@ -10,10 +10,12 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Set<CompositeTime> set = new Set<CompositeTime>();
+		Set<Double> set = new Set<Double>();
 		double[] darray = {3.14, 7.18, 4.23};
 		CompositeTime ctime = new CompositeTime(darray);
-		//ElapsedTime etime = new ElapsedTime(10.3);
+		MeanElapsedTime etime = new MeanElapsedTime(set);
+		System.out.println(ctime.shorter(etime));
+		System.out.println(etime.shorter(ctime));
 		
 		//set.insert(ctime);
 		
@@ -32,5 +34,10 @@ public class Test {
 		//die schranke ist. Kann des wer loesen? I hab da grad an knopf im denken...I vermut es geht irgendwie mit wildcards aber leider wenn i a Shorter<?> mach in OrderedSet dann bugged da rest
 		//System.out.println(string4);
 		
+<<<<<<< HEAD
+=======
+		//OrderedMap<String, Double> test = new OrderedMap<String, Double>();	
+
+>>>>>>> Changed ComositeTime, ElapsedTime und Test.java
 	}
 }
