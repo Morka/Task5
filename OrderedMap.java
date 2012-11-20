@@ -1,6 +1,11 @@
 public class OrderedMap<T,E> extends Set<T> implements Iterable<T>{
+	private Node<T> head;
+	private Node<T> tail;
 	
-	private class MyIterator<T,E>{
+	private Node<E> theOtherHead;
+	private Node<E> theOtherTail;
+	
+	private class MyIterator<T>{
 		private Node<T> p;
 		private Node<T> prev;
 		
@@ -38,4 +43,5 @@ public class OrderedMap<T,E> extends Set<T> implements Iterable<T>{
 			}
 		}
 	}
+	
 }

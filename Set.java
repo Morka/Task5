@@ -25,7 +25,7 @@ public class Set<T> implements Iterable<T> {
 			if (p == null){
 				return null;
 			}
-			T element = p.getElement();
+			T element = p.getElement();	
 			prev = p;
 			p = p.getNextNode();
 				
