@@ -3,8 +3,8 @@ public class NodeMap<T extends Shorter<T>, E>{
 	private T element;
 	private Node<E> elementHead;
 	
-	public NodeMap(T elem, Node<E> elementHead){
-		this.elementHead = elementHead;
+	public NodeMap(T elem, E elementHead){
+		this.elementHead = new Node<E>(elementHead);
 		this.element = elem;
 	}
 	
@@ -32,7 +32,7 @@ public class NodeMap<T extends Shorter<T>, E>{
 		return elem.equals(element) || (next != null && next.contains(elem));
 	}
 	
-	public void insert(T element, Node<E> secondElement){
+	public void insert(T element, E secondElement){
 		if(this.element.shorter(element)){
 			if(next != null){
 				next.insert(element, secondElement);
@@ -41,10 +41,10 @@ public class NodeMap<T extends Shorter<T>, E>{
 				next = new NodeMap<T,E>(element, secondElement);
 			}
 		}else{
-			NodeMap<T, E> newNextNode = new NodeMap<T, E>(this.element, this.elementHead);
+			NodeMap<T, E> newNextNode = new NodeMap<T, E>(this.element, this.elementHead.getElement());
 			newNextNode.setNextNode(this.next);
 			this.element = element;
-			this.elementHead = secondElement;
+			this.elementHead.setElement(secondElement);
 			this.next = newNextNode;
 		}
 	}

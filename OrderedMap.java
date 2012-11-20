@@ -5,15 +5,19 @@ import java.util.Iterator;
 */
 
 public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements Iterable<T>{
-	private NodeMap<T, E> head;
-	private NodeMap<T, E> tail;
+	private NodeMap<T, E> head = null;
+	private NodeMap<T, E> tail = null;
 	
 	//Use if OrderedSet is not possible 
 	
-	public void insert(T element, Node<E> secondElement){
+	public void insert(T element, E secondElement){
 		if(!contains(element)) {
+			if(head == null){
+				head = new NodeMap<T,E>(element, secondElement);
+			}else{
 			
 			head.insert(element, secondElement);
+			}
 			
 		}
 	}		
