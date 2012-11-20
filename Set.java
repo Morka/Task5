@@ -22,13 +22,13 @@ public class Set<T> implements Iterable<T> {
 		}
 		
 		public T next() {      // get next list element
-			if (p == null)
+			if (p == null){
 				return null;
+			}
 			T element = p.getElement();
 			prev = p;
 			p = p.getNextNode();
-			
-			
+				
 			return element;
 		}
 		
