@@ -5,40 +5,36 @@ import java.util.Iterator;
 */
 
 public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements Iterable<T>{
-	private ComparableNode<T> head;
-	private ComparableNode<T> tail;
-	
-	private Node<E> theOtherHead;
-	private Node<E> theOtherTail;
+	private NodeMap<T, E> head;
+	private NodeMap<T, E> tail;
 	
 	//Use if OrderedSet is not possible 
-	/*
-	public void insert(T element){
-	if(!contains(element)) {
 	
-	head.insert(element);
-	
-	}
+	public void insert(T element, Node<E> secondElement){
+		if(!contains(element)) {
+			
+			head.insert(element, secondElement);
+			
+		}
 	}		
 	
 	//check if identic
 	private boolean contains(T element) {
-	
-	return head != null && head.contains(element);
-	
-	}*/
+		
+		return head != null && head.contains(element);
+		
+	}
+	public Iterator<T> iterator(){
+		return new MyIterator<T, E>(head);
+	}
 	
 	private class MyIterator<T extends Shorter<T>, E> implements Iterator<T>, Iterable<E>{
-		private ComparableNode<T> p;
-		private ComparableNode<T> prev;
+		private NodeMap<T, E> p;
+		private NodeMap<T, E> prev;
 		
-		private Node<E> theOtherHead;
-		
-		public MyIterator(ComparableNode<T> first, Node<E> theOtherHead){
+		public MyIterator(NodeMap<T, E> first){
 			this.p = first;
 			this.prev = null;
-			
-			this.theOtherHead = theOtherHead;
 			
 		}
 		
@@ -71,28 +67,28 @@ public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements
 		}
 		/*
 		private class TheOtherIterator<E> extends MyIterator implements Iterator<E>{
-			private Node<E> p;
-			private Node<E> prev = null;
-			
-			public TheOtherIterator(Node<E> theOtherFirst){
-				this.p = theOtherFirst;
-				prev = null;
-			}
-			
-			public void add(Node<E> newNode){
-				prev.setNextNode(newNode);
-				newNode.setNextNode(p);
-			}
-			
-			/*	
-				REMOVE IS MISSING!
-				
-			*/
-			
+		private Node<E> p;
+		private Node<E> prev = null;
+		
+		public TheOtherIterator(Node<E> theOtherFirst){
+		this.p = theOtherFirst;
+		prev = null;
+		}
+		
+		public void add(Node<E> newNode){
+		prev.setNextNode(newNode);
+		newNode.setNextNode(p);
+		}
+		
+		/*	
+		REMOVE IS MISSING!
+		
+		*/
+		
 		//}
 		
 		public Iterator<E> iterator(){
-			return new TheOtherIterator<E>(theOtherHead);
+			return new TheOtherIterator<E>(p.getElementHead());
 		}
 	}
 	
