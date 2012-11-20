@@ -75,6 +75,15 @@ public class Test {
 		System.out.println("-----END OrderedSet-Test-----");
 		
 
+		OrderedMap<ElapsedTime, Double> orderedMap = new OrderedMap<ElapsedTime, Double>();
+		
+		orderedMap.insert(etime, 2131.1);
+		orderedMap.insert(ctime1, 231.5);
+		
+		Iterator<ElapsedTime> iter = orderedMap.iterator();
+		
+		iter.add();				
+		
 		//OrderedMap<String, Double> test = new OrderedMap<String, Double>();	
 	}
 }

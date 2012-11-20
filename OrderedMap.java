@@ -32,7 +32,7 @@ public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements
 		return new MyIterator<T, E>(head);
 	}
 	
-	private class MyIterator<T extends Shorter<T>, E> implements Iterator<T>, Iterable<E>{
+	private class MyIterator<T extends Shorter<T>, E> implements Iterator<T>{
 		private NodeMap<T, E> p;
 		private NodeMap<T, E> prev;
 		
@@ -46,11 +46,15 @@ public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements
 			if(p == null){
 				return null;
 			}
-			NodeMap<T,E> element = p;
+			T element = p.getElement();
 			prev = p;
 			p = p.getNextNode();
 			
 			return element;
+		}
+		
+		public void add(){
+		
 		}
 		
 		public boolean hasNext(){
