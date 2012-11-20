@@ -35,6 +35,22 @@ public class Test {
 		Description desc4 = new Description("Silence fills the empty grave,\nnow that I have gone.\nBut my mind is not at rest,\nfor questions linger on.\nI will ask, and you will answer.");
 		Description desc5 = new Description("We exist together now,\ntwo corpses in one grave...");
 		Set<Description> ordSet = new Set<Description>(); 
+		
+		ordSet.insert(desc1);
+		ordSet.insert(desc2);
+		ordSet.insert(desc3);
+		ordSet.insert(desc4);
+		ordSet.insert(desc5);
+		
+		Iterator<Description> ordIt = ordSet.iterator();
+		
+		while(ordIt.hasNext()){
+			
+			Description tmpDesc = ordIt.next();
+			System.out.println("Text: \n" + tmpDesc.toString());
+			System.out.println("Zeilen: " + tmpDesc.lineCount() + "\n");
+			
+		}
 		//die schranke ist. Kann des wer loesen? I hab da grad an knopf im denken...I vermut es geht irgendwie mit wildcards aber leider wenn i a Shorter<?> mach in OrderedSet dann bugged da rest
 		//System.out.println(string4);
 		

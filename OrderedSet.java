@@ -45,8 +45,16 @@ public class OrderedSet<T extends Shorter<T>> implements Iterable<T> {
 	public void insert(T element) {
 		if(!contains(element)) {
 
-			head.insert(element);
-
+			if(head == null){
+				
+				head = new ComparableNode<T>(element);
+				
+			} else {
+				
+				head.insert(element);
+				
+			}
+			
 		}
 	}		
 	
