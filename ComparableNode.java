@@ -54,9 +54,15 @@ public class ComparableNode<T extends Shorter<T>>{
 		} else {
 			
 			return false;
+			ComparableNode<T> newNextNode = new ComparableNode<T>(this.element);
+			newNextNode.setNextNode(this.next);
+			this.element = element;
+			this.next = newNextNode;
 			
 		}
 	}*/
+		
+	}
 }	
 
 
