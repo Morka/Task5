@@ -48,18 +48,19 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 		}
 	}
 
+	
 	private double mean(){
 		
 		Iterator<Double> iter = times.iterator();
 		
 		double sum = 0.0;
-		/*	
-		while(iter.hasNext()){
-			Node<Double> tmp = iter.next();
-			sum += tmp.getElement();
 		
-		}*/
-			return sum;
+		while(iter.hasNext()){
+			double tmp = iter.next();
+			sum += tmp;
+		
+		}
+		return sum / this.count();
 	}
 
 	
