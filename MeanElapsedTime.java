@@ -47,7 +47,7 @@ public class MeanElapsedTime<T extends ElapsedTime> implements ElapsedTime{
 		Iterator iter = times.iterator();
 		
 		double sum = 0.0;
-		
+	/*	
 		while(iter.hasNext()){
 			Node<Double> tmp = iter.next();
 			sum += tmp.getElement();
@@ -69,7 +69,8 @@ public class MeanElapsedTime<T extends ElapsedTime> implements ElapsedTime{
 			
 		}
 		return longest;
-	}
+	*/
+	return sum;}
 
 	@Override
 	public boolean shorter(Object compareTo) {
