@@ -73,10 +73,6 @@ public class Test {
 			
 		}
 		System.out.println("-----END OrderedSet-Test-----");
-
-		
-		//die schranke ist. Kann des wer loesen? I hab da grad an knopf im denken...I vermut es geht irgendwie mit wildcards aber leider wenn i a Shorter<?> mach in OrderedSet dann bugged da rest
-		//System.out.println(string4);
 		
 
 		//OrderedMap<String, Double> test = new OrderedMap<String, Double>();	
