@@ -42,25 +42,14 @@ public class ComparableNode<T extends Shorter<T>>{
 				
 			}
 			
-		}
-		
-	}
-
-	/*public boolean shorter(T compareTo) {
-		if(this.element.compareTo(compareTo) < 0){
-			
-			return true;
-			
 		} else {
 			
-			return false;
 			ComparableNode<T> newNextNode = new ComparableNode<T>(this.element);
 			newNextNode.setNextNode(this.next);
 			this.element = element;
 			this.next = newNextNode;
 			
 		}
-	}*/
 		
 	}
 }	
