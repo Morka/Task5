@@ -27,8 +27,10 @@ public class Test {
 		System.out.println(etime.shorter(ctime2)); //4.2 < 3.3 --> false
 		System.out.println(ctime2.shorter(ctime1)); //3.3 < 14.2 --> true
 		
-		
+		System.out.println("-----BEGIN OrderedSet-Test-----");
 		//OrderedSet + Description Test
+		//Expected Output - every node(5) of the OrderedSet with line count
+		//3rd node gets deleted - all(4) remaining nodes with line count
 		Description desc1 = new Description("I? I am a monument to all your sins.");
 		Description desc2 = new Description("This one is machine and nerve,\nand has its mind concluded.\nThis one is but flesh and faith,\nand is the more deluded.");
 		Description desc3 = new Description("There is much talk, and I have listened,\nthrough rock and metal and time.\nNow I shall talk, and you shall listen.");
@@ -44,6 +46,7 @@ public class Test {
 		
 		Iterator<Description> ordIt = ordSet.iterator();
 		
+		System.out.println("---First OrderedSet-Test---");
 		while(ordIt.hasNext()){
 			
 			Description tmpDesc = ordIt.next();
@@ -51,6 +54,27 @@ public class Test {
 			System.out.println("Zeilen: " + tmpDesc.lineCount() + "\n");
 			
 		}
+		
+		ordIt = ordSet.iterator();
+		
+		ordIt.next();
+		ordIt.next();
+		
+		ordIt.remove();
+
+		ordIt = ordSet.iterator();
+		
+		System.out.println("---Removed OrderedSet-Test---");
+		while(ordIt.hasNext()){
+			
+			Description tmpDesc = ordIt.next();
+			System.out.println("Text: \n" + tmpDesc.toString());
+			System.out.println("Zeilen: " + tmpDesc.lineCount() + "\n");
+			
+		}
+		System.out.println("-----END OrderedSet-Test-----");
+
+		
 		//die schranke ist. Kann des wer loesen? I hab da grad an knopf im denken...I vermut es geht irgendwie mit wildcards aber leider wenn i a Shorter<?> mach in OrderedSet dann bugged da rest
 		//System.out.println(string4);
 		
