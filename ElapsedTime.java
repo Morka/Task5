@@ -6,6 +6,8 @@ public interface ElapsedTime<T> extends Shorter<T>{//if not as interface then li
 	
 	//public boolean shorter(T compareTo);
 	public int count();
+	
+	public double toBeCompared();
 
 
 }

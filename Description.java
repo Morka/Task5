@@ -2,7 +2,7 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
 
-public class Description<T extends Shorter>{
+public class Description implements Shorter<String> {
 	
 	private String value;
 	
@@ -12,9 +12,10 @@ public class Description<T extends Shorter>{
 		
 	}
 
-	public boolean shorter(T compareTo) {
+	@Override
+	public boolean shorter(String compareTo) {
 		
-		if(this.toBeCompared() < compareTo.toBeCompared()){
+		if(this.value.length() < compareTo.length()){
 			
 			return true;
 			
@@ -23,10 +24,6 @@ public class Description<T extends Shorter>{
 			return false;
 			
 		}
-	}
-	
-	public double toBeCompared(){
-		return value.length();
 	}
 	
 	public String toString() {

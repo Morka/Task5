@@ -1,6 +1,10 @@
 import java.util.Iterator;
 
-public class MeanElapsedTime<T extends Shorter> implements ElapsedTime{
+/**
+ * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
+ */
+
+public class MeanElapsedTime<T extends ElapsedTime> implements ElapsedTime{
 	
 	private Set<Double> times;
 
@@ -27,7 +31,6 @@ public class MeanElapsedTime<T extends Shorter> implements ElapsedTime{
 	
 	public boolean shorter(T compareTo){
 		double mean = this.toBeCompared();
-		
 		
 		if(mean < compareTo.toBeCompared()){
 			return true;

@@ -3,7 +3,7 @@
  * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
  */
 
-public class CompositeTime<T extends Shorter> implements ElapsedTime<T>{
+public class CompositeTime<T extends ElapsedTime> implements ElapsedTime<T>{
 	private double[] array;
 	
 	public CompositeTime(double[] times) {

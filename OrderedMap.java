@@ -1,9 +1,30 @@
-public class OrderedMap<T,E> extends Set<T> implements Iterable<T>{
-	private Node<T> head;
-	private Node<T> tail;
+/**
+ * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
+ */
+
+public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements Iterable<T>{
+	private ComparableNode<T> head;
+	private ComparableNode<T> tail;
 	
 	private Node<E> theOtherHead;
 	private Node<E> theOtherTail;
+	
+	//Use if OrderedSet is not possible 
+	/*
+	public void insert(T element){
+		if(!contains(element)) {
+
+			head.insert(element);
+
+		}
+	}		
+	
+	//check if identic
+	private boolean contains(T element) {
+
+		return head != null && head.contains(element);
+
+	}*/
 	
 	private class MyIterator<T>{
 		private Node<T> p;
