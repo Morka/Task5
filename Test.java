@@ -10,19 +10,23 @@ public class Test {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
 		Set<Double> set = new Set<Double>();
-		double[] darray = {3.14, 7.18, 4.23};
-		CompositeTime ctime = new CompositeTime(darray);
-		MeanElapsedTime etime = new MeanElapsedTime(set);
-		System.out.println(ctime.shorter(etime));
-		System.out.println(etime.shorter(ctime));
+		set.insert(3.2);
+		set.insert(4.2);
+		set.insert(5.2);
+		MeanElapsedTime etime = new MeanElapsedTime(set); //mean = 4.2
 		
-		//set.insert(ctime);
+		double[] darray1 = {3.14, 7.26, 4.2}; 
+		CompositeTime ctime1 = new CompositeTime(darray1); //compositeTime = 14.6
 		
-		//Iterator<CompositeTime> it = set.iterator();
-		//while(it.hasNext()) {
-		//	System.out.println(ctime.shorter(etime));
-		//}
+		double[] darray2 = {1.1, 2.2}; 
+		CompositeTime ctime2 = new CompositeTime(darray2); //compositeTime = 3.3
+		
+		System.out.println(ctime1.shorter(etime)); //14.6 < 4.2 --> false
+		System.out.println(etime.shorter(ctime2)); //4.2 < 3.3 --> false
+		System.out.println(ctime2.shorter(ctime1)); //3.3 < 14.2 --> true
+		
 		
 		//OrderedSet + Description Test
 		Description desc1 = new Description("I? I am a monument to all your sins.");
@@ -30,14 +34,11 @@ public class Test {
 		Description desc3 = new Description("There is much talk, and I have listened,\nthrough rock and metal and time.\nNow I shall talk, and you shall listen.");
 		Description desc4 = new Description("Silence fills the empty grave,\nnow that I have gone.\nBut my mind is not at rest,\nfor questions linger on.\nI will ask, and you will answer.");
 		Description desc5 = new Description("We exist together now,\ntwo corpses in one grave...");
-		//OrderedSet<Description> ordSet = new OrderedSet<Description>();//WIE BITTE WAS? Das problem is glaub ich weil Description ja Shorter<String> implementiert aber in OrderedSet Shortert<T> 
+		Set<Description> ordSet = new Set<Description>(); 
 		//die schranke ist. Kann des wer loesen? I hab da grad an knopf im denken...I vermut es geht irgendwie mit wildcards aber leider wenn i a Shorter<?> mach in OrderedSet dann bugged da rest
 		//System.out.println(string4);
 		
-<<<<<<< HEAD
-=======
-		//OrderedMap<String, Double> test = new OrderedMap<String, Double>();	
 
->>>>>>> Changed ComositeTime, ElapsedTime und Test.java
+		//OrderedMap<String, Double> test = new OrderedMap<String, Double>();	
 	}
 }
