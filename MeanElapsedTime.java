@@ -9,12 +9,12 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 	
 	public int count(){
 		int countTimes = 0;
-		
+
 		Iterator<Double> iter = times.iterator();
-		while(iter.hasNext()) {                          
+		while(iter.hasNext()) { 
+			iter.next();
 			countTimes++;
 		}
-		
 		return countTimes;
 	}
 	
@@ -39,7 +39,7 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 
 	
 	public boolean shorter(ElapsedTime compareTo) {
-		double mean = this.toBeCompared();
+		double mean = this.mean();
 		
 		if(mean < compareTo.toBeCompared()){
 				return true;
@@ -52,7 +52,7 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 	private double mean(){
 		
 		Iterator<Double> iter = times.iterator();
-		
+
 		double sum = 0.0;
 		
 		while(iter.hasNext()){
