@@ -46,7 +46,7 @@ public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements
 			if(p == null){
 				return null;
 			}
-			T element = p.getElement();
+			NodeMap<T,E> element = p;
 			prev = p;
 			p = p.getNextNode();
 			
@@ -69,27 +69,7 @@ public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements
 				throw new IllegalStateException();
 			}
 		}
-		/*
-		private class TheOtherIterator<E> extends MyIterator implements Iterator<E>{
-		private Node<E> p;
-		private Node<E> prev = null;
 		
-		public TheOtherIterator(Node<E> theOtherFirst){
-		this.p = theOtherFirst;
-		prev = null;
-		}
-		
-		public void add(Node<E> newNode){
-		prev.setNextNode(newNode);
-		newNode.setNextNode(p);
-		}
-		
-		/*	
-		REMOVE IS MISSING!
-		
-		*/
-		
-		//}
 		
 		public Iterator<E> iterator(){
 			return new TheOtherIterator<E>(p.getElementHead());
