@@ -12,7 +12,8 @@ public class Description implements Shorter<Description> {
 	 * @param string	the string to be set inside the Object
 	 */
 	public Description(String string){
-		
+		//Precondition: string != null
+		//Postcondition: String gets its value assigned
 		this.value = string;
 		
 	}
@@ -23,7 +24,8 @@ public class Description implements Shorter<Description> {
 	 * @param compareTo	the string which will be compared to this Descriptions string
 	 */
 	public boolean shorter(Description compareTo) {
-		
+		//Precondition: compareTo != null
+		//Postcondition: returns true if the string in this Description is shorter than the one in compareTo
 		if(this.value.length() < compareTo.toString().length()){
 			
 			return true;
@@ -40,7 +42,7 @@ public class Description implements Shorter<Description> {
 	 * 
 	 */
 	public String toString() {
-		
+		//Postcondition: returns the String value
 		return value;
 		
 	}
@@ -51,7 +53,7 @@ public class Description implements Shorter<Description> {
 	 * @return	number of lines of value
 	 */
 	public int lineCount() {
-		
+		//Postcondition: returns the line count of this class' string; retrun value > 0
 		return value.split("\n").length;
 		
 	}

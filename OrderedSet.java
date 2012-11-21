@@ -20,6 +20,8 @@ public class OrderedSet<T extends Shorter<T>> implements Iterable<T> {
 		 * @param first	the first node in the set
 		 */
 		public MyOrderedIterator(ComparableNode<T> first){
+			//Precondition: first != null
+			//Postcondition: retusn an Iterator with a soutable root-node
 			p = first;
 			prev = null;
 		}
@@ -29,6 +31,7 @@ public class OrderedSet<T extends Shorter<T>> implements Iterable<T> {
 		 * 
 		 */
 		public T next() {
+			//Postcondition: returns the next node; sets p to the node after the next node
 			if (p == null)
 				return null;
 			T element = p.getElement();
@@ -51,6 +54,7 @@ public class OrderedSet<T extends Shorter<T>> implements Iterable<T> {
 		 * 
 		 */
 		public void remove() {
+			//Postcondition: removes the node from the set; Must not be the first node
 			if(prev != null) 
 				prev.setNextNode(p.getNextNode());
 			else
@@ -64,6 +68,8 @@ public class OrderedSet<T extends Shorter<T>> implements Iterable<T> {
 	 * @param element	The element to insert into the set
 	 */
 	public void insert(T element) {
+		//Precondition: element != null
+		//Postcondition: element gets inserted in OrderedSet
 		if(!contains(element)) {
 
 			if(head == null){
@@ -86,7 +92,8 @@ public class OrderedSet<T extends Shorter<T>> implements Iterable<T> {
 	 * @return	true of the element is inside the OrderedSet
 	 */
 	private boolean contains(T element) {
-
+		//Precondition: element != null
+		//Postcondition: returns whether element is in this Set or not
 		return head != null && head.contains(element);
 
 	}
