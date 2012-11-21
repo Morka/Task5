@@ -9,9 +9,15 @@ public class TheOtherIterator<E> implements Iterator<E>{
 		prev = null;
 	}
 	
-	public void add(Node<E> newNode){
-		prev.setNextNode(newNode);
-		newNode.setNextNode(p);
+	public void add(E newNode){
+		Node<E> theNewNode = new Node<E>(newNode);
+		if(p.getNextNode() == null){
+			p.setNextNode(theNewNode);
+		}else{
+			theNewNode.setNextNode(p.getNextNode());
+			p.setNextNode(theNewNode);
+		}
+		
 	}
 	
 	public E next(){

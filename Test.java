@@ -80,10 +80,22 @@ public class Test {
 		orderedMap.insert(etime, 2131.1);
 		orderedMap.insert(ctime1, 231.5);
 		
-		Iterator<ElapsedTime> iter = orderedMap.iterator();
+		MyIterator<ElapsedTime, Double> iter = orderedMap.iterator();
 		
-		iter.add();				
+		NodeMap<ElapsedTime, Double> test = iter.nextList();
 		
+		iter.next();
+		
+		TheOtherIterator<Double> iter2 = iter.iterator();
+		iter2.add(1223112341.6);
+		iter2.add(1671.91);
+		iter2.add(55.1);
+		
+		while(iter2.hasNext()){
+			System.out.println(iter2.next());
+		}
+
+
 		//OrderedMap<String, Double> test = new OrderedMap<String, Double>();	
 	}
 }

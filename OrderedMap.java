@@ -4,7 +4,7 @@ import java.util.Iterator;
 * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
 */
 
-public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements Iterable<T>{
+public class OrderedMap<T extends Shorter<T>,E> /*extends OrderedSet<T>*/{
 	private NodeMap<T, E> head = null;
 	private NodeMap<T, E> tail = null;
 	
@@ -28,56 +28,9 @@ public class OrderedMap<T extends Shorter<T>,E> extends OrderedSet<T> implements
 		return head != null && head.contains(element);
 		
 	}
-	public Iterator<T> iterator(){
+	public MyIterator<T, E> iterator(){
 		return new MyIterator<T, E>(head);
 	}
 	
-	private class MyIterator<T extends Shorter<T>, E> implements Iterator<T>{
-		private NodeMap<T, E> p;
-		private NodeMap<T, E> prev;
-		
-		public MyIterator(NodeMap<T, E> first){
-			this.p = first;
-			this.prev = null;
-			
-		}
-		
-		public T next(){
-			if(p == null){
-				return null;
-			}
-			T element = p.getElement();
-			prev = p;
-			p = p.getNextNode();
-			
-			return element;
-		}
-		
-		public void add(){
-		
-		}
-		
-		public boolean hasNext(){
-			if(p != null){
-				return true;
-			}
-			else{
-				return false;
-			}
-		}
-		public void remove(){
-			if(prev != null){
-				prev = p.getNextNode();
-			}
-			else{
-				throw new IllegalStateException();
-			}
-		}
-		
-		
-		public Iterator<E> iterator(){
-			return new TheOtherIterator<E>(p.getElementHead());
-		}
-	}
 	
 }
