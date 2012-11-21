@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class TheOtherIterator<E> implements Iterator<E>{
+public class TheOtherIterator<E> implements Iterator{
 	private Node<E> p;
 	private Node<E> prev = null;
 	

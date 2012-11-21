@@ -1,5 +1,6 @@
+import java.util.Iterator;
 
-public class MyIterator<T extends Shorter<T>, E>{
+public class MyIterator<T extends ElapsedTime, E> implements Iterator{
 	private NodeMap<T, E> p;
 	private NodeMap<T, E> prev;
 	
@@ -35,10 +36,6 @@ public class MyIterator<T extends Shorter<T>, E>{
 		else{
 			throw new IllegalStateException();
 		}
-	}
-	
-	public NodeMap<T, E> nextList(){
-		return p;
 	}
 	
 	public TheOtherIterator<E> iterator(){

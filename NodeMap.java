@@ -1,4 +1,4 @@
-public class NodeMap<T extends Shorter<T>, E>{
+public class NodeMap<T extends ElapsedTime, E>{
 	private NodeMap<T, E> next = null;
 	private T element;
 	private Node<E> elementHead;

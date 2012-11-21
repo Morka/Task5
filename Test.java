@@ -15,7 +15,12 @@ public class Test {
 		set.insert(3.2);
 		set.insert(4.2);
 		set.insert(5.2);
+		Set<Double> set2 = new Set<Double>();
+		set2.insert(11.1);
+		set2.insert(99.2);
+
 		MeanElapsedTime etime = new MeanElapsedTime(set); //mean = 4.2
+		MeanElapsedTime etime2 = new MeanElapsedTime(set2);
 		
 		double[] darray1 = {3.14, 7.26, 4.2}; 
 		CompositeTime ctime1 = new CompositeTime(darray1); //compositeTime = 14.6
@@ -82,7 +87,7 @@ public class Test {
 		
 		MyIterator<ElapsedTime, Double> iter = orderedMap.iterator();
 		
-		NodeMap<ElapsedTime, Double> test = iter.nextList();
+		//NodeMap<ElapsedTime, Double> test = iter.nextList();
 		
 		iter.next();
 		
@@ -90,12 +95,56 @@ public class Test {
 		iter2.add(1223112341.6);
 		iter2.add(1671.91);
 		iter2.add(55.1);
-		
+		/*
+		Output: 231.5
+				55.1
+				1671.91
+				1223112341.6
+		*/
 		while(iter2.hasNext()){
 			System.out.println(iter2.next());
 		}
+		System.out.println("\nTestcase 2");
+		OrderedMap<MeanElapsedTime, CompositeTime> orderedMap2 = new OrderedMap<MeanElapsedTime, CompositeTime>();
+		
+		orderedMap2.insert(etime, ctime1);
+		orderedMap2.insert(etime2, ctime1);
+		
+		MyIterator<MeanElapsedTime, CompositeTime> m2Iter1 = orderedMap2.iterator();
+		
+		TheOtherIterator<CompositeTime> m2Iter2 = m2Iter1.iterator();
+		
+		m2Iter2.add(ctime2);
+		/*
+		Output: 5.2
+				3.14
+				1.1
+				99.2
+		*/
+		OrderedSet<ElapsedTime> ordSet2 = new OrderedSet<ElapsedTime>();
+		while(m2Iter1.hasNext()){
+				MeanElapsedTime mEtime = m2Iter1.next();
+				System.out.println(mEtime.longestTime()); //5.2; 99.2
+				ordSet2.insert(mEtime);
+				while(m2Iter2.hasNext()){
+					CompositeTime coTime = m2Iter2.next();
+					System.out.println(coTime.shortestTime()); //3.14, 1.1
+					ordSet2.insert(coTime);
+				}
+		}
+		System.out.println("-----END OrderedMap-Test-----");
+		
+		System.out.println("\nTestcase3");
+		Iterator<ElapsedTime> ordIter = ordSet2.iterator();
+		while(ordIter.hasNext()){
+			ElapsedTime tmp = ordIter.next();
+			if(ordIter.hasNext()){
+				
+			}else{
+				System.out.println(tmp.toBeCompared());
+			}
+		}
 
 
-		//OrderedMap<String, Double> test = new OrderedMap<String, Double>();	
 	}
 }

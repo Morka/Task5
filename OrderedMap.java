@@ -4,10 +4,10 @@ import java.util.Iterator;
 * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
 */
 
-public class OrderedMap<T extends Shorter<T>,E> /*extends OrderedSet<T>*/{
+public class OrderedMap<T extends ElapsedTime,E> extends OrderedSet{
 	private NodeMap<T, E> head = null;
 	private NodeMap<T, E> tail = null;
-	
+
 	//Use if OrderedSet is not possible 
 	
 	public void insert(T element, E secondElement){
@@ -18,7 +18,6 @@ public class OrderedMap<T extends Shorter<T>,E> /*extends OrderedSet<T>*/{
 			
 			head.insert(element, secondElement);
 			}
-			
 		}
 	}		
 	
@@ -28,7 +27,7 @@ public class OrderedMap<T extends Shorter<T>,E> /*extends OrderedSet<T>*/{
 		return head != null && head.contains(element);
 		
 	}
-	public MyIterator<T, E> iterator(){
+	public MyIterator<T,E> iterator(){
 		return new MyIterator<T, E>(head);
 	}
 	

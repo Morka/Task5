@@ -2,14 +2,14 @@ import java.util.Iterator;
 
 public class MeanElapsedTime implements ElapsedTime /*or implements depanding on ElapsedTime*/ {
 	private Set<Double> times;
-
+	
 	public MeanElapsedTime(Set<Double> times){
 		this.times = times;
 	}
 	
 	public int count(){
 		int countTimes = 0;
-
+		
 		Iterator<Double> iter = times.iterator();
 		while(iter.hasNext()) { 
 			iter.next();
@@ -26,9 +26,15 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 		Iterator<Double> iter = times.iterator();
 		double longest = 0.0;
 		
+		if(iter.hasNext()){
+			longest = iter.next();
+		}else{
+			return longest;
+		}
+		
 		while(iter.hasNext()){
 			double tmp = iter.next();
-			if(tmp < longest){
+			if(tmp > longest){
 				longest = tmp;
 			}
 		}
@@ -36,33 +42,33 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 	}
 	
 	
-
+	
 	
 	public boolean shorter(ElapsedTime compareTo) {
 		double mean = this.mean();
 		
 		if(mean < compareTo.toBeCompared()){
-				return true;
+			return true;
 		} else {
-				return false;
+			return false;
 		}
 	}
-
+	
 	
 	private double mean(){
 		
 		Iterator<Double> iter = times.iterator();
-
+		
 		double sum = 0.0;
 		
 		while(iter.hasNext()){
 			double tmp = iter.next();
 			sum += tmp;
-		
+			
 		}
 		return sum / this.count();
 	}
-
+	
 	
 	public double toBeCompared() {
 		return mean();
