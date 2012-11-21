@@ -4,7 +4,7 @@ import java.util.Iterator;
 * @author Matthias Gusenbauer, Wolfgang Hofer, Alexander Neff
 */
 
-public class OrderedMap<T extends ElapsedTime,E> extends OrderedSet{
+public class OrderedMap<T extends ElapsedTime,E> extends Set<T>{
 	private NodeMap<T, E> head = null;
 	private NodeMap<T, E> tail = null;
 

@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class MyIterator<T extends ElapsedTime, E> implements Iterator{
+public class MyIterator<T extends ElapsedTime, E> implements Iterator<T>{
 	private NodeMap<T, E> p;
 	private NodeMap<T, E> prev;
 	
