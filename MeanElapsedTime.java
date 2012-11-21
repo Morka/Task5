@@ -3,9 +3,18 @@ import java.util.Iterator;
 public class MeanElapsedTime implements ElapsedTime /*or implements depanding on ElapsedTime*/ {
 	private Set<Double> times;
 	
+	/**
+	  * Constructor
+	  * @param times initializes the Set<Double>;
+	  */
 	public MeanElapsedTime(Set<Double> times){
 		this.times = times;
 	}
+	
+	/**
+	  * Counts number of times in "times"
+	  * @return count of times in "times" 
+	  */
 	
 	public int count(){
 		int countTimes = 0;
@@ -18,9 +27,20 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 		return countTimes;
 	}
 	
+	/**
+	  * Ads new Times to the set
+	  * @param time time to be added;
+	  * Postcondition: time is added to times
+	  */
 	public void addTimes(double time){
 		times.insert(time);
 	}
+	
+	/**
+	  * computets longest time
+	  * @return longest time in the set
+	  * Postcondition: returned double value that contains the longest time in set
+	  */
 	
 	public double longestTime(){
 		Iterator<Double> iter = times.iterator();
@@ -41,8 +61,12 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 		return longest;
 	}
 	
-	
-	
+	/** Method from interface Shorter
+	  * takes the own comparative value and compares it with the comparative value of compareTo
+	  * 
+	  * @return if mean < comparative value -> true, otherwise false
+	  * Precondtion: compareTo != null
+	  */
 	
 	public boolean shorter(ElapsedTime compareTo) {
 		double mean = this.mean();
@@ -53,7 +77,13 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 			return false;
 		}
 	}
-	
+	/** 
+	  * algorithm to find the comparative value
+	  * takes the mean of all individual time
+	  * 
+	  * @return mean of all individual time
+	  * Postcondition: return value is mean of times
+	  */
 	
 	private double mean(){
 		
@@ -69,7 +99,11 @@ public class MeanElapsedTime implements ElapsedTime /*or implements depanding on
 		return sum / this.count();
 	}
 	
-	
+	/** Method from interface ElapsedTime
+	  * provides comparative value for ElapsedTime instances 
+	  * 
+	  * @return comparative value of MeanElapsedTime
+	  */
 	public double toBeCompared() {
 		return mean();
 	}
